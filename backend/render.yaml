@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: pravah-house-price-api
+    env: python
+    region: singapore
+    plan: free
+    buildCommand: pip install -r requirements.txt && python train_model.py
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ENV
+        value: production
+      - key: MODEL_PATH
+        value: model.pkl
+      - key: ALLOWED_ORIGINS
+        value: https://pravah-house-price.vercel.app,https://*.vercel.app
+      - key: PYTHON_VERSION
+        value: 3.11.0
