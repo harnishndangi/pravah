@@ -4,8 +4,6 @@ __pycache__/
 venv/
 env/
 .env
-*.pkl
 *.joblib
-model.pkl
 .pytest_cache/
 .DS_Store
